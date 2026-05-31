@@ -2,7 +2,7 @@ from setuptools import setup
 import os
 from glob import glob
 
-package_name = 'ranger_bringup'
+package_name = 'tca_bev_bringup'
 
 setup(
     name=package_name,

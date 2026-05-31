@@ -7,7 +7,7 @@ mock_sensors -> time_align -> pose_anchor_manager(mock_odom)
             -> safety_supervisor -> ranger_base_bridge(mock) + bev_visualization
 
 Run:
-  ros2 launch ranger_bringup mock_e2e_closed_loop.launch.py
+  ros2 launch tca_bev_bringup mock_e2e_closed_loop.launch.py
 """
 from launch import LaunchDescription
 from launch_ros.actions import Node
