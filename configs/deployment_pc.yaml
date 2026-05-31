@@ -1,0 +1,4 @@
+deployment_pc:
+  ros_domain_id: 42
+  rviz_config: rviz/tca_bevnav_debug.rviz
+  record_dir: ~/tca_datasets

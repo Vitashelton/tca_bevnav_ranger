@@ -1,0 +1,17 @@
+# Sensor configuration + ROUGH (uncalibrated) extrinsics base_link -> sensor.
+# These are hand-measured initial values; calibration is NOT precise yet.
+mid360s:
+  frame_id: lidar_link
+  expected_rate: 10.0
+  extrinsic_xyz: [0.0, 0.0, 0.30]   # meters, base_link -> lidar_link
+  extrinsic_rpy: [0.0, 0.0, 0.0]    # radians
+  extrinsic_confidence: 0.9
+d435i:
+  frame_id: camera_link
+  depth_scale: 0.001
+  min_depth: 0.2
+  max_depth: 6.0
+  hfov_deg: 86.0
+  extrinsic_xyz: [0.20, 0.0, 0.20]  # base_link -> camera_link
+  extrinsic_rpy: [0.0, 0.0, 0.0]
+  extrinsic_confidence: 0.4         # LOW: not yet calibrated

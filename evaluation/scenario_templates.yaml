@@ -1,0 +1,117 @@
+# Test scenario definitions for the experiment protocol.
+# These describe how to set up each evaluation episode. Used to label recorded
+# runs (the `scenario` column in CSV logs) so compute_metrics.py can break down
+# success rates per scenario family. No results are stored here.
+
+scenarios:
+  open_room_goto:
+    family: basic
+    description: "空旷房间内直达目标，无障碍。"
+    door_count: 0
+    corridor_width_m: null
+    dynamic_obstacles: 0
+    goal_distance_m: 3.0
+    trials: 20
+
+  single_door:
+    family: door
+    description: "穿过单个门框到达目标。"
+    door_count: 1
+    door_width_m: 0.9
+    dynamic_obstacles: 0
+    goal_distance_m: 4.0
+    trials: 20
+
+  narrow_corridor:
+    family: corridor
+    description: "通过窄走廊，要求居中行驶。"
+    door_count: 0
+    corridor_width_m: 0.8
+    dynamic_obstacles: 0
+    goal_distance_m: 5.0
+    trials: 20
+
+  corridor_door_combo:
+    family: corridor,door
+    description: "窄走廊 + 末端门框组合。"
+    door_count: 1
+    corridor_width_m: 0.9
+    dynamic_obstacles: 0
+    goal_distance_m: 6.0
+    trials: 20
+
+  dynamic_pedestrian:
+    family: dynamic
+    description: "走廊中有一名移动行人横穿。"
+    door_count: 0
+    corridor_width_m: 1.2
+    dynamic_obstacles: 1
+    goal_distance_m: 5.0
+    trials: 30
+
+  cluttered_dynamic:
+    family: dynamic,corridor
+    description: "杂乱场景 + 动态障碍，综合压力测试。"
+    door_count: 1
+    corridor_width_m: 1.0
+    dynamic_obstacles: 2
+    goal_distance_m: 6.0
+    trials: 30
+
+# Ablation matrix (see metrics_definition.md). Each row is a system config to
+# be evaluated across the scenarios above. Fill the result tables only from
+# real/simulated runs via compute_metrics.py + plot_results.py.
+ablations:
+  - id: A1_lidar_only
+    bev_fusion: lidar_only
+    anchor: mock_odom
+    policy: bc
+  - id: A2_depth_only
+    bev_fusion: depth_only
+    anchor: mock_odom
+    policy: bc
+  - id: A3_naive_fusion
+    bev_fusion: naive
+    anchor: mock_odom
+    policy: bc
+  - id: A4_time_conf
+    bev_fusion: tca_time_only
+    anchor: mock_odom
+    policy: bc
+  - id: A5_full_tca
+    bev_fusion: tca
+    anchor: mock_odom
+    policy: bc
+  - id: A6_no_anchor
+    bev_fusion: tca
+    anchor: none
+    policy: bc
+  - id: A7_wheel_odom
+    bev_fusion: tca
+    anchor: wheel_odom
+    policy: bc
+  - id: A8_fast_lio2
+    bev_fusion: tca
+    anchor: fast_lio2
+    policy: bc
+  - id: A9_fast_livo2
+    bev_fusion: tca
+    anchor: fast_livo2
+    policy: bc
+  - id: A10_bc
+    bev_fusion: tca
+    anchor: fast_lio2
+    policy: bc
+  - id: A11_bc_ppo
+    bev_fusion: tca
+    anchor: fast_lio2
+    policy: bc_ppo
+  - id: A12_bc_ppo_safety
+    bev_fusion: tca
+    anchor: fast_lio2
+    policy: bc_ppo
+    safety_supervisor: true
+  - id: A13_traditional_baseline
+    bev_fusion: n/a
+    anchor: fast_lio2
+    policy: traditional_local_planner   # comparison baseline only

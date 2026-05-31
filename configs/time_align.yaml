@@ -1,0 +1,9 @@
+time_align:
+  sync_anchor: lidar        # lidar | depth | odom
+  max_time_diff_ms: 60.0
+  tau_t_ms: 50.0            # C_time = exp(-|dt|/tau_t)
+  lidar_buffer_size: 10
+  depth_buffer_size: 15
+  odom_buffer_size: 100
+  drop_on_exceed: false     # false = downweight via time_confidence
+  odom_topic: /mock/odom    # set to /anchor/odom on real robot

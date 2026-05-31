@@ -1,0 +1,8 @@
+pose_anchor:
+  backend_type: mock_odom   # none|wheel_odom|fast_lio2|fast_livo|fast_livo2|external_odom|mock_odom
+  input_topic: ""          # "" -> backend default
+  expected_freq: 50.0
+  tau_jump: 0.3
+  tau_vel: 0.5
+  tau_cov: 0.5
+  min_quality_valid: 0.15

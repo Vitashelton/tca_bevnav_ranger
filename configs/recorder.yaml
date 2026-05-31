@@ -1,0 +1,9 @@
+recorder:
+  output_dir: ~/tca_datasets
+  scenario_name: corridor_door
+  dynamic_obstacles: 1
+  door_count: 1
+  corridor_width: 1.4
+  anchor_backend: mock_odom
+  policy_version: dummy
+  operator: unknown

@@ -1,0 +1,11 @@
+experiment:
+  scenarios: [corridor_door, narrow_corridor, open_room, dynamic_pedestrian]
+  trials_per_scenario: 10
+  success_radius: 0.3
+  timeout_s: 60.0
+  ablations:
+    - lidar_only
+    - depth_only
+    - naive
+    - tca_time
+    - tca_full

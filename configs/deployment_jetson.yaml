@@ -1,0 +1,6 @@
+deployment_jetson:
+  ros_domain_id: 42
+  use_tensorrt: true
+  engine_path: ~/tca_engines/bev_policy_fp16.engine
+  fp16: true
+  control_rate: 10.0

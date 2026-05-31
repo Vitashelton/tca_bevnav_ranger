@@ -1,0 +1,41 @@
+# Centralized topic names. Adapters remap raw -> /sensors/*.
+raw:
+  livox_lidar: /livox/lidar
+  livox_imu: /livox/imu
+  color_image: /camera/color/image_raw
+  depth_image: /camera/depth/image_rect_raw
+  aligned_depth: /camera/aligned_depth_to_color/image_raw
+  camera_info: /camera/color/camera_info
+sensors:
+  lidar_points: /sensors/lidar_points
+  lidar_imu: /sensors/lidar_imu
+  depth_image: /sensors/depth_image
+  color_image: /sensors/color_image
+  camera_info: /sensors/camera_info
+aligned:
+  lidar_points: /aligned/lidar_points
+  depth_image: /aligned/depth_image
+  camera_info: /aligned/camera_info
+  anchor_odom: /aligned/anchor_odom
+anchor:
+  odom: /anchor/odom
+  path: /anchor/path
+  status: /anchor/status
+bev:
+  tensor: /bev/tensor
+  image_debug: /bev/image_debug
+  status: /bev/status
+goal:
+  raw: /goal/raw
+  local: /goal/local
+  vector: /goal/vector
+policy:
+  debug: /policy/debug
+  cmd_vel_raw: /cmd_vel_raw
+safety:
+  status: /safety/status
+  cmd_vel_safe: /cmd_vel_safe
+  manual_estop: /manual_estop
+base:
+  odom: /ranger/odom
+  status: /ranger/status

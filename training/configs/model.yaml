@@ -1,0 +1,11 @@
+# BevCnnPolicy architecture configuration.
+model:
+  in_channels: 13          # TCA-BEV channel count (see tca_bev_fusion CHANNEL_NAMES)
+  bev_size: 100            # H == W
+  use_velocity: true       # feed current (vx,vy,wz) into the policy
+  bev_feat_dim: 128
+  goal_feat_dim: 32
+  max_vx: 0.6
+  max_vy: 0.4
+  max_wz: 1.0
+  param_budget_million: 5.0  # target upper bound; export fails review if exceeded

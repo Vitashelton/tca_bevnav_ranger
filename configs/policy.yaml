@@ -1,0 +1,10 @@
+policy:
+  runtime_type: dummy      # dummy|torch|onnx|tensorrt
+  model_path: ""
+  max_vx: 0.6
+  max_vy: 0.4
+  max_wz: 1.0
+  goal_gain: 1.0
+  obstacle_brake_dist: 0.8
+  require_enable: false
+  control_rate: 10.0

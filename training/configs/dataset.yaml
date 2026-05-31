@@ -1,0 +1,12 @@
+# Dataset configuration for behavior cloning.
+dataset:
+  # Directory of .npz shards extracted from rosbags via inspect_dataset.py.
+  # Each shard: bev (N,C,H,W), goal (N,4), action (N,3), optional vel (N,3).
+  path: training/datasets/extracted
+  augment: true
+  use_velocity: true
+  # The BC target is /cmd_vel_safe (the executed, safety-checked command).
+  expert_topic: /cmd_vel_safe
+  bev_topic: /bev/tensor
+  goal_topic: /goal/vector
+  max_match_dt_ms: 80

@@ -1,0 +1,21 @@
+# Behavior-cloning training configuration.
+in_channels: 13
+use_velocity: true
+max_vx: 0.6
+max_vy: 0.4
+max_wz: 1.0
+
+epochs: 30
+batch_size: 64
+lr: 0.0003
+val_split: 0.1
+
+# Loss term weights (see training/models/losses.py).
+weights:
+  action: 1.0          # MSE to expert action (teleop / teacher / sim expert)
+  smooth: 0.05         # penalize jerky commands
+  collision: 0.5       # discourage forward speed into occupied BEV cells
+  uncertainty: 0.1     # heteroscedastic uncertainty regularization
+
+logdir: training/runs/bc
+ckpt: training/runs/bc/policy_bc.pt

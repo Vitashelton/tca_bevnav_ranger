@@ -1,0 +1,10 @@
+# Ranger Mini 2.0 omni-directional base parameters
+robot:
+  name: ranger_mini_2
+  base_frame: base_link
+  holonomic: true
+  max_vx: 1.0      # m/s
+  max_vy: 0.6      # m/s
+  max_wz: 1.2      # rad/s
+  footprint_radius: 0.35
+  cmd_timeout: 0.5

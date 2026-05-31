@@ -1,0 +1,13 @@
+# TF frames. odom/map need not be globally accurate; pose anchor is for
+# SHORT-TERM local BEV stabilization only (no no-drift global claim).
+frames:
+  map: map
+  odom: odom
+  base_link: base_link
+  lidar_link: lidar_link
+  camera_link: camera_link
+  camera_color_optical_frame: camera_color_optical_frame
+  camera_depth_optical_frame: camera_depth_optical_frame
+  bev_anchor: bev_anchor
+policy:
+  conservative_mode_if_uncalibrated: true

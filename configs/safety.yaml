@@ -1,0 +1,11 @@
+safety:
+  max_vx: 0.6
+  max_vy: 0.4
+  max_wz: 1.0
+  min_obstacle_distance: 0.30
+  slow_obstacle_distance: 0.80
+  cmd_timeout: 0.5
+  bev_timeout: 0.5
+  degraded_speed_scale: 0.4
+  uncertainty_brake: true
+  output_rate: 20.0

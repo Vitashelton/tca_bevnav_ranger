@@ -1,0 +1,28 @@
+# PPO fine-tuning configuration (kinematic env; warm-start from BC).
+in_channels: 13
+total_steps: 200000
+rollout: 2048
+epochs: 4
+minibatch: 256
+gamma: 0.99
+lam: 0.95
+clip: 0.2
+lr: 0.0003
+ent_coef: 0.0
+vf_coef: 0.5
+
+logdir: training/runs/ppo
+ckpt: training/runs/ppo/policy_ppo.pt
+
+# Reward weights mirror RewardConfig in rl_env_wrapper.py; documented in
+# docs/training_strategy.md. Edit there and keep in sync.
+reward:
+  progress: 1.0
+  heading: 0.1
+  collision: -10.0
+  near_obstacle: -0.5
+  door_passing: 2.0
+  corridor_centering: 0.3
+  smooth: -0.05
+  time: -0.01
+  success: 20.0

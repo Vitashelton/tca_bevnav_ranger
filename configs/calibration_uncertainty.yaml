@@ -1,0 +1,11 @@
+calibration:
+  lidar_xyz: [0.0, 0.0, 0.30]
+  lidar_yaw: 0.0
+  camera_xyz: [0.20, 0.0, 0.20]
+  camera_yaw: 0.0
+  lidar_extrinsic_confidence: 0.9
+  camera_extrinsic_confidence: 0.4   # C_calib = exp(-(1-conf)/tau_c)
+  depth_inflation_radius_low_conf: 0.40
+  depth_inflation_radius_high_conf: 0.10
+  tau_c: 0.5
+  broadcast_tf: true
