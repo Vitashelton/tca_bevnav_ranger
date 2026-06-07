@@ -17,6 +17,8 @@ lib64/
 parts/
 sdist/
 var/
+*.pptx
+paper/
 wheels/
 *.egg-info/
 .installed.cfg
